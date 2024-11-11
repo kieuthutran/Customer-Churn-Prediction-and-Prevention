@@ -32,17 +32,67 @@ By segmenting churned users into distinct groups based on their behaviors using 
 
 # **3. Exploratory Data Analysis (EDA)**
 
-**Data Overview**
+**3.1. Data Overview**
 
-**Handle Missing / Duplicate Values**
+```python
+import pandas as pd
+df_churn = pd.read_csv('https://raw.githubusercontent.com/kieuthutran/Customer-Churn-Prediction-and-Prevention/refs/heads/main/churn_prediction.csv')
+```
 
-**Univariate Analysis**
+* Number of rows, columns in data
+* Data types
+* Summary statistic
 
-**Bivariate and Multivariate Analysis**
+**3.2. Handle Missing / Duplicate Values**
 
-**Outlier Detection**
+* Missing values
 
-**Target Variable Analysis**
+```python
+df_churn.dropna(how='all', inplace=True)
+df_churn.isna().mean().sort_values(ascending=False)
+```
+
+![alt](https://i.imgur.com/lM6s2sD.png)
+
+```python
+df_churn['DaySinceLastOrder'] = df_churn['DaySinceLastOrder'].fillna(0)
+df_churn['OrderAmountHikeFromlastYear'] = df_churn['OrderAmountHikeFromlastYear'].fillna(0)
+df_churn['Tenure'] = df_churn['Tenure'].fillna(0)
+df_churn['OrderCount'] = df_churn['OrderCount'].fillna(0)
+df_churn['CouponUsed'] = df_churn['CouponUsed'].fillna(0)
+df_churn['HourSpendOnApp'] = df_churn['HourSpendOnApp'].fillna(0)
+df_churn['WarehouseToHome'] = df_churn['WarehouseToHome'].fillna(df_churn['WarehouseToHome'].median())
+```
+
+* Duplicate values
+
+There is no duplicate record in data
+
+```python
+df_churn.duplicated().sum()
+```
+
+* Replace values
+
+```python
+df_churn['PreferredLoginDevice'] = df_churn['PreferredLoginDevice'].str.replace('Mobile Phone', 'Phone')
+
+df_churn['PreferredPaymentMode'] = df_churn['PreferredPaymentMode'].str.replace('COD', 'Cash on Delivery')
+df_churn['PreferredPaymentMode'] = df_churn['PreferredPaymentMode'].str.replace('CC', 'Credit Card')
+
+df_churn['PreferedOrderCat'] = df_churn['PreferedOrderCat'].str.replace('Mobile Phone', 'Phone')
+df_churn['PreferedOrderCat'] = df_churn['PreferedOrderCat'].str.replace('Mobile', 'Phone')
+```
+
+**3.3. Univariate Analysis**
+
+
+
+**3.4. Bivariate and Multivariate Analysis**
+
+**3.5. Outlier Detection**
+
+**3.6. Target Variable Analysis**
 
 # **4. Build Machine Learning Models**
 
