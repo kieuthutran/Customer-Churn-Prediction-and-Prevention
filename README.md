@@ -1,14 +1,37 @@
 # **1. Overview**
+
 By segmenting churned users into distinct groups based on their behaviors using Python-based machine learning techniques like clustering algorithms (K-means), the company can tailor highly personalized promotions to effectively re-engage and retain these valuable customers.
 
 # **2. Tools and Technologies**
-   - Customer Churn Dataset
+
    - Python programming language
+   - Customer Churn Dataset
 
-# **3. Requirements**
-1. What are the patterns/behavior of churned users? What are your suggestions to the company to reduce churned users. 
-2. Build the Machine Learning model for predicting churned users.
-3. Based on the behaviors of churned users, the company would like to offer some special promotions for them. 
-Please segment these churned users into groups. What are the differences between groups?
+| | Description|
+|--|--|
+|CustomerID | Unique customer ID|
+|Churn | Churn Flag|
+|Tenure | Tenure of customer in organization|
+|PreferredLoginDevice | Preferred login device of customer|
+|CityTier | City tier (1,2,3)|
+|WarehouseToHome | Distance in between warehouse to home of customer|
+|PreferPaymentMethod | PreferredPaymentMode Preferred payment method of customer|
+|Gender | Gender of customer|
+|HourSpendOnApp | Number of hours spend on mobile application or website|
+|NumberOfDeviceRegistered | Total number of devices is registered on particular customer|
+|PreferedOrderCat | Preferred order category of customer in last month|
+|SatisfactionScore | Satisfactory score of customer on service|
+|MaritalStatus | Marital status of customer|
+|NumberOfAddress | Total number of added added on particular customer|
+|Complain | Any complaint has been raised in last month|
+|OrderAmountHikeFromlastYear | Percentage increases in order from last year|
+|CouponUsed | Total number of coupon has been used in last month|
+|OrderCount | Total number of orders has been places in last month|
+|DaySinceLastOrder | Day since last order by customer|
+|CashbackAmount | Average cashback in last month|
 
-# **4. Visualization and Insights**
+# **3. Data Preparation**
+
+# **4. Build Machine Learning Models**
+
+# **5. Recommendations**
