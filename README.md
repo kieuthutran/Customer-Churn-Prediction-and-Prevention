@@ -312,7 +312,7 @@ df_clus = pd.concat([df_clus, labels], axis=1)
 df_clus.groupby('Cluster').size()
 ```
 
-|Cluster | |
+|Cluster | Total|
 |--|--|
 |0.0 | 367|
 |1.0 | 339|
