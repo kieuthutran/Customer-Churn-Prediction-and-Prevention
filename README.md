@@ -30,12 +30,24 @@ By segmenting churned users into distinct groups based on their behaviors using 
 |DaySinceLastOrder | Day since last order by customer|
 |CashbackAmount | Average cashback in last month|
 
-# **3. Data Preparation**
+# **3. Exploratory Data Analysis (EDA)**
 
-**Data Cleaning**
+**Data Overview**
 
+**Handle Missing / Duplicate Values**
 
+**Univariate Analysis**
+
+**Bivariate and Multivariate Analysis**
+
+**Outlier Detection**
+
+**Target Variable Analysis**
 
 # **4. Build Machine Learning Models**
+
+## **Predict Churned Customers**
+
+## **Segment Churned Customers**
 
 # **5. Recommendations**
