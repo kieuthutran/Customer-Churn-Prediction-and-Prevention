@@ -32,6 +32,10 @@ By segmenting churned users into distinct groups based on their behaviors using 
 
 # **3. Data Preparation**
 
+**Data Cleaning**
+
+
+
 # **4. Build Machine Learning Models**
 
 # **5. Recommendations**
