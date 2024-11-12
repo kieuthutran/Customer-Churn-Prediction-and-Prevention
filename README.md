@@ -317,7 +317,7 @@ plt.show()
 
 ![alt](https://i.imgur.com/sJzxjiZ.png)
 
-As can be seen from the plot, the elbow-like shape occurs at **k=3**.
+As can be seen from the plot, the elbow-like shape occurs at **k=4**.
 
 **Churn Customer Segmentation**
 
