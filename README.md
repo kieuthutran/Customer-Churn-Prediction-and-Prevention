@@ -339,3 +339,15 @@ df_clus.groupby('Cluster').size()
 |2.0 | 239|
 
 # **5. Recommendations**
+
+**Identify key behaviors of churned customers and implement strategies to reduce churn.**
+
+* _Target Short-Tenure Customers_ : Offer special discounts, rewards, or loyalty points to encourage early commitment.
+* _Encourage Digital Payments_ : Provide discounts or rewards for using digital payment methods. Streamline the digital payment process to make it convenient and secure.
+* _Optimize Device Registration_ : Provide exclusive benefits or features to customers who register multiple devices.
+* _Cater to Diverse Product Preferences_ : Offer a wider range of products, especially in categories like phone, laptop, and accessories. Implement effective strategies to encourage customers to purchase additional products.
+* _Understand the Impact of Marital Status_ : Develop targeted marketing campaigns for single customers, focusing on their specific needs and preferences. Building community among single customers through online forums or social media groups.
+* _Address Complaints Promptly and Effectively_ : Encourage customer feedback through surveys, reviews, or social media. Reach out to customers who have lodged complaints to offer solutions and improve their satisfaction.
+
+**Segment churned customers according to their exhibited behaviors to implement targeted promotional offers.**
+
