@@ -126,7 +126,13 @@ plt.tight_layout()
 plt.show()
 ```
 
-
+* _PreferredLoginDevice_ : Majority of customers preferring to log in using their phones.
+* _CityTier_ : Majority of customers residing in Tier 1 cities.
+* _PreferredPaymentMode_ : Customers exhibit a variety of payment preferences, with card payments being the most popular choice.
+* _Gender_ : Male customers constitute a larger proportion.
+* _PreferedOrderCat_ : Laptop and Phone is the most popular category among customers.
+* _MaritalStatus_ : Married individuals form a substantial portion of the company's customer base. However, single individuals exhibit the highest churn rate.
+* _Complain_ : The majority of customers are not having any complaints. Churned customers, however, are equally divided between those with and without complaints.
 
 **3.4. Bivariate and Multivariate Analysis**
 
