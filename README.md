@@ -100,29 +100,21 @@ for i, col in enumerate(cols, 1):
     sns.kdeplot(df_churn, x=col, hue='Churn', shade=True)
 plt.tight_layout()
 plt.show()
+```
 
 * _Tenure_ : Often right-skewed, with a long tail towards higher values. This indicates that many customers churn early, while a smaller percentage stays for a longer duration.
-
 * _WarehouseToHome_ : Right-skewed distribution, with a peak around lower values. This suggests that a majority of customers have shorter distances between their warehouse and home.
-
 * _HourSpendOnApp_ : Peaks around 2, 3 and 4 hours. This suggests that most users might spend a lot of time on the app.
-
 * _NumberOfDeviceRegistered_ : Peak around average values. This indicates that most customers register multiple devices.
-
 * _SatisfactionScore_ : Bimodal distribution, with peaks around 3. This suggests that there might be two distinct groups of customers: those with lower satisfaction and those with higher satisfaction.
-
 * _NumberOfAddress_ : Right-skewed distribution. This suggests that a significant number of customers have fewer addresses, while a smaller portion has more.
-
 * _OrderAmountHikeFromLastYear_ : Most customers have a significant increase in their order volume compared to last year. A few are new customers this year.
-
 * _CouponUsed_ : Right-skewed distribution. This suggests that a majority of customers use fewer coupons, it might be that the company's coupon usage strategy is not very effective in driving customer purchases.
-
 * _OrderCount_ : Majority of customers make fewer orders.
-
 * _DaysSinceLastOrder_ : A significant number of customers have shorter intervals between orders, which might indicate that the company's products or services are not frequently repurchased by customers.
-
 * _CashbackAmount_ : A right-skewed distribution might indicate that the company's cashback program is not very generous for most customers. A significant number of customers receive cashback amounts between \$100 and \$250.
 
+```python
 # Category Values
 obj_cols = df_churn.select_dtypes(include=['object'])
 cols = obj_cols.columns.tolist()
