@@ -226,7 +226,7 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels = churn_logis.
 disp.plot()
 ```
 
-![alt](https://i.imgur.com/yI8p7y6.png)
+![alt](https://i.imgur.com/OBkhmSw.png)
 
 ```python
 # Random Forest
@@ -246,7 +246,7 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels = churn_rand.c
 disp.plot()
 ```
 
-![alt](https://i.imgur.com/9duKTWc.png)
+![alt](https://i.imgur.com/DkDQyoF.png)
 
 ```python
 # XGBOOST
@@ -263,7 +263,7 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels = model_xgb.cl
 disp.plot()
 ```
 
-![alt](https://i.imgur.com/athdjHU.png)
+![alt](https://i.imgur.com/3pG8con.png)
 
 **Hyperparameter Tuning**
 
@@ -287,56 +287,71 @@ accuracy = best_clf.score(x_test, y_test)
 print("Test set accuracy: ", accuracy)
 ```
 
-_Best Parameters_:  {'bootstrap': True, 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+_Best Parameters_:  {'bootstrap': True, 'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}
 
-_Test set accuracy_:  0.9715976331360947
+_Test set accuracy_:  0.9750889679715302
 
 ## **Segment Churned Customers**
 
 **Determine the Optimal Number of Clusters**
 
 ```python
+# Encoding
 df_clus = df_churn[df_churn['Churn'] == 1]
-df_clus_encoding = pd.get_dummies(df_clus, columns=['PreferredLoginDevice', 'CityTier', 'PreferredPaymentMode', 'Gender', 'PreferedOrderCat', 'MaritalStatus', 'Complain'])
+df_dummies = pd.get_dummies(df_clus, columns = ['PreferredLoginDevice', 'CityTier', 'PreferredPaymentMode', 'Gender', 'PreferedOrderCat', 'MaritalStatus', 'Complain'], drop_first=True)
+df_dummies.head()
 
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler()
-scaler.fit(df_clus_encoding)
-df_clus_scaled = scaler.transform(df_clus_encoding)
-
+# Choosing K
 from sklearn.cluster import KMeans
-ks = range(1, 10)
-inertias = []
-for k in ks:
-    model = KMeans(n_clusters=k, random_state=42)
-    model.fit(df_clus_encoding)
-    inertias.append(model.inertia_)
-plt.plot(ks, inertias, '-o')
+ss = []
+max_clusters = 10
+for i in range(1, max_clusters+1):
+    kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42)
+    kmeans.fit(df_dummies)
+    ss.append(kmeans.inertia_)
+
+# Plot the Elbow method
+plt.figure(figsize=(10,5))
+plt.plot(range(1, max_clusters+1), ss, marker='o', linestyle='--')
+plt.title('Elbow Method')
+plt.xlabel('Number of clusters')
+plt.ylabel('WCSS')
 plt.show()
 ```
 
-![alt](https://i.imgur.com/sJzxjiZ.png)
+![alt](https://i.imgur.com/VJ3ZzQe.png)
 
-As can be seen from the plot, the elbow-like shape occurs at **k=4**.
+As can be seen from the plot, the elbow-like shape occurs at **k=3**.
 
 **Churn Customer Segmentation**
 
 ```python
-model = KMeans(n_clusters=3, random_state=42)
-model.fit(df_clus_scaled)
+# Apply K-Means
+kmeans = KMeans(n_clusters=3, init='k-means++', random_state=42)
+predicted_labels = kmeans.fit_predict(df_dummies)
+df_dummies['Cluster'] = predicted_labels
+df_clus['Cluster'] = predicted_labels
 
-labels = model.labels_
-labels = pd.DataFrame(labels, columns=['Cluster'])
-df_clus = pd.concat([df_clus, labels], axis=1)
 
-df_clus.groupby('Cluster').size()
+# Evaluating Model
+from sklearn.metrics import silhouette_score
+sil_score = silhouette_score(df_dummies, predicted_labels)
+print(sil_score)
 ```
+
+silhouette score = 0.5932233811690528
 
 |Cluster | Total|
 |--|--|
-|0.0 | 367|
-|1.0 | 339|
-|2.0 | 239|
+|0 | 340|
+|1 | 313|
+|2 | 292|
+
+**Distribution of Clusters**
+
+![alt](https://i.imgur.com/Ny1tTCB.png)
+![alt](https://i.imgur.com/FZFRmZy.png)
+![alt](https://i.imgur.com/mEqGISD.png)
 
 # **5. Recommendations**
 
