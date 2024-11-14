@@ -366,3 +366,8 @@ silhouette score = 0.5932233811690528
 
 **Segment churned customers according to their exhibited behaviors to implement targeted promotional offers.**
 
+|Cluster | Bucket| Description| Engagement Strategy|
+|--|--|--|--|
+|0 | High-Value Customers| Long-tenure customers with high average cashback amounts| Exclusive Loyalty Program: Offer a premium loyalty program with exclusive perks, such as early access to sales, personalized concierge services, or birthday gifts.<br>Personalized Recommendations: Utilize data analytics to recommend products or services tailored to their preferences and purchase history.<br>Limited-Time Offers: Provide exclusive discounts or promotions on new products or services.|
+|1 | New or Less Engaged Customers| Short-tenure customers with low average cashback amounts| Welcome Offers: Offer attractive discounts or free shipping on first purchases.<br>Referral Programs: Encourage customers to refer friends and family and reward them with discounts or credits.<br>Educational Content: Provide informative content, such as product tutorials or tips, to help customers get the most out of their purchases.|
+|2 | Moderately Engaged Customers| Moderate tenure and cashback amounts| Tiered Loyalty Program: Offer a tiered loyalty program with different levels of rewards based on spending and engagement.<br>Seasonal Promotions: Provide time-limited offers, such as seasonal discounts or holiday sales.<br>Product Bundling: Create attractive product bundles with discounts to encourage additional purchases.|
