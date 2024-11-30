@@ -15,7 +15,7 @@ By segmenting churned users into distinct groups based on their behaviors using 
 |PreferredLoginDevice | Preferred login device of customer|
 |CityTier | City tier (1,2,3)|
 |WarehouseToHome | Distance in between warehouse to home of customer|
-|PreferPaymentMethod | PreferredPaymentMode Preferred payment method of customer|
+|PreferPaymentMethod | Preferred payment method of customer|
 |Gender | Gender of customer|
 |HourSpendOnApp | Number of hours spend on mobile application or website|
 |NumberOfDeviceRegistered | Total number of devices is registered on particular customer|
